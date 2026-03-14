@@ -1,16 +1,7 @@
 # 🌸 Laura Blanco — Fotografía de Familia · Tucumán
 
 Sitio web profesional construido con **React + Vite**.
-
-## 🚀 Cómo usarlo
-
-```bash
-npm install
-npm run dev        # → http://localhost:3000
-npm run build      # Compilar para producción
-```
-
----
+Implementacion de IA par su creacion.
 
 ## 📁 Estructura
 
