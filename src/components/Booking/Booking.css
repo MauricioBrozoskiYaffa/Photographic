@@ -1,0 +1,283 @@
+/* ============================================
+   BOOKING — Laura Blanco
+   ============================================ */
+
+.booking {
+  padding: var(--section-py) 0;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decoración fondo */
+.booking__bg-deco {
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 400px;
+  background: var(--terra-pale);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.booking__layout {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 72px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Panel izquierdo ── */
+.booking__info { position: sticky; top: 108px; }
+
+.booking__info-title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.booking__info-title em { color: var(--terracotta); }
+
+.booking__info-desc {
+  font-size: 0.92rem;
+  color: var(--text-body);
+  line-height: 1.85;
+  margin-bottom: 40px;
+}
+
+/* Steps */
+.booking__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.booking__step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.booking__step-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--terra-pale);
+  border: 1px solid var(--terracotta);
+  color: var(--terracotta);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.booking__step-text {
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 1.6;
+  padding-top: 5px;
+}
+
+/* Contacto directo */
+.booking__direct {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.booking__direct-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: var(--text-body);
+  padding: 14px 18px;
+  background: var(--cream-dark);
+  border-radius: 12px;
+  border: 1px solid var(--cream-mid);
+  transition: var(--t);
+  text-decoration: none;
+}
+
+.booking__direct-link:hover {
+  border-color: var(--terracotta);
+  color: var(--terracotta);
+  background: var(--terra-pale);
+}
+
+.booking__direct-link svg { flex-shrink: 0; }
+
+/* ── Formulario ── */
+.booking__form-card {
+  background: var(--cream-dark);
+  border-radius: 28px;
+  padding: 52px;
+  box-shadow: var(--shadow-soft);
+}
+
+.booking__form-title {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin-bottom: 36px;
+  color: var(--ink);
+}
+
+/* Campos */
+.f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 0; }
+
+.f-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.f-label {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.f-input, .f-select, .f-textarea {
+  background: var(--cream);
+  border: 1.5px solid var(--cream-mid);
+  border-radius: 12px;
+  color: var(--ink);
+  padding: 13px 18px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.f-input:focus,
+.f-select:focus,
+.f-textarea:focus {
+  border-color: var(--terracotta);
+}
+
+.f-input.err, .f-select.err, .f-textarea.err {
+  border-color: #d95f5f;
+  background: rgba(217, 95, 95, 0.04);
+}
+
+.f-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c47b5a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+  cursor: pointer;
+}
+
+.f-select option { background: var(--cream); color: var(--ink); }
+
+.f-textarea { resize: vertical; min-height: 90px; }
+.f-error { font-size: 0.7rem; color: #d95f5f; }
+
+/* Disponibilidad */
+.avail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-top: -6px;
+  margin-bottom: 10px;
+}
+
+.avail.ok  { background: rgba(122, 148, 120, 0.12); color: var(--sage); border: 1px solid rgba(122,148,120,0.3); }
+.avail.bad { background: rgba(217, 95, 95, 0.1);    color: #c05050;     border: 1px solid rgba(217,95,95,0.3); }
+
+.avail__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* Slots */
+.slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.slot {
+  text-align: center;
+  padding: 10px 6px;
+  font-size: 0.8rem;
+  border: 1.5px solid var(--cream-mid);
+  border-radius: 10px;
+  background: var(--cream);
+  color: var(--text-body);
+  cursor: pointer;
+  transition: var(--t-fast);
+}
+
+.slot:hover { border-color: var(--terracotta); color: var(--terracotta); }
+.slot.sel   { background: var(--terracotta); border-color: var(--terracotta); color: var(--cream); }
+
+/* Actions */
+.f-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--cream-mid);
+}
+
+.f-actions .btn { flex: 1; justify-content: center; min-width: 160px; border-radius: 40px; }
+
+/* Success */
+.booking__success {
+  text-align: center;
+  padding: 64px 32px;
+}
+
+.booking__success-icon {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  animation: floatY 3s ease-in-out infinite;
+}
+
+.booking__success h3 {
+  font-size: 2rem;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.booking__success p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  max-width: 360px;
+  margin: 0 auto 32px;
+}
+
+@media (max-width: 1020px) {
+  .booking__layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .booking__info { position: static; }
+  .booking__form-card { padding: 36px; }
+}
+
+@media (max-width: 600px) {
+  .f-row { grid-template-columns: 1fr; }
+  .booking__form-card { padding: 24px; }
+  .slots { grid-template-columns: repeat(3, 1fr); }
+  .f-actions { flex-direction: column; }
+}

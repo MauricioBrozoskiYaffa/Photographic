@@ -1,0 +1,288 @@
+/* ============================================
+   HERO — Laura Blanco
+   Layout: texto izquierda + collage orgánico derecha
+   ============================================ */
+
+.hero {
+  min-height: 100vh;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 84px;
+}
+
+/* Mancha de fondo orgánica */
+.hero__blob {
+  position: absolute;
+  top: -10%;
+  right: -8%;
+  width: 55%;
+  height: 110%;
+  background: radial-gradient(ellipse 80% 90% at 60% 50%,
+    var(--blush) 0%,
+    var(--cream-dark) 55%,
+    transparent 80%);
+  border-radius: 42% 58% 60% 40% / 50% 40% 60% 50%;
+  z-index: 0;
+  animation: blobPulse 12s ease-in-out infinite alternate;
+}
+
+@keyframes blobPulse {
+  from { border-radius: 42% 58% 60% 40% / 50% 40% 60% 50%; transform: scale(1); }
+  to   { border-radius: 60% 40% 45% 55% / 55% 60% 40% 45%; transform: scale(1.03); }
+}
+
+/* Decoración de hoja/curva izquierda */
+.hero__deco-left {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 220px;
+  height: 220px;
+  background: var(--sage-pale);
+  border-radius: 0 70% 0 0;
+  z-index: 0;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--px);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* ── Texto ── */
+.hero__text { }
+
+.hero__pre {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--sage);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.7s var(--ease) forwards 0.2s;
+}
+
+.hero__pre::before {
+  content: '';
+  width: 28px; height: 1px;
+  background: var(--sage);
+}
+
+.hero__h1 {
+  font-size: clamp(3rem, 6.5vw, 5.6rem);
+  font-style: italic;
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) forwards 0.4s;
+}
+
+.hero__h1 strong {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--terracotta);
+}
+
+.hero__h1-sub {
+  display: block;
+  font-style: normal;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.hero__desc {
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.85;
+  max-width: 400px;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) forwards 0.6s;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease) forwards 0.8s;
+}
+
+/* Firma / badge */
+.hero__badge {
+  margin-top: 52px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 1.2s;
+}
+
+.hero__badge-line {
+  width: 48px; height: 1px;
+  background: var(--parchment);
+}
+
+.hero__badge-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* ── Collage de fotos ── */
+.hero__collage {
+  position: relative;
+  height: 560px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.5s;
+}
+
+.hero__photo {
+  position: absolute;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+/* Foto principal - grande */
+.hero__photo--main {
+  width: 68%;
+  aspect-ratio: 3/4;
+  top: 0;
+  right: 0;
+  border-radius: 120px 12px 12px 12px;
+}
+
+/* Foto secundaria */
+.hero__photo--sm {
+  width: 44%;
+  aspect-ratio: 1/1;
+  bottom: 0;
+  left: 0;
+  border-radius: 12px 12px 80px 12px;
+  border: 6px solid var(--cream);
+}
+
+/* Foto mini - acento */
+.hero__photo--xs {
+  width: 32%;
+  aspect-ratio: 4/5;
+  top: 38%;
+  left: 14%;
+  border-radius: 60px 60px 12px 12px;
+  border: 5px solid var(--cream);
+  z-index: 2;
+  box-shadow: var(--shadow-soft);
+}
+
+.hero__photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+
+.hero__photo:hover img {
+  transform: scale(1.05);
+}
+
+/* Sticker decorativo */
+.hero__sticker {
+  position: absolute;
+  bottom: 12%;
+  right: -12px;
+  width: 88px; height: 88px;
+  background: var(--terracotta);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.72rem;
+  text-align: center;
+  line-height: 1.3;
+  z-index: 3;
+  animation: floatY 4s ease-in-out infinite;
+  cursor: pointer;
+  box-shadow: var(--shadow-terra);
+}
+
+/* Scroll hint */
+.hero__scroll {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 1.5s;
+}
+
+.hero__scroll-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50%       { transform: translateY(8px); opacity: 0.4; }
+}
+
+.hero__scroll-text {
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (max-width: 960px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    padding-top: 60px;
+    gap: 48px;
+  }
+  .hero__collage {
+    height: 400px;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero__desc { max-width: 100%; }
+  .hero__blob { display: none; }
+}
+
+@media (max-width: 600px) {
+  .hero__h1 { font-size: 2.8rem; }
+  .hero__collage { height: 320px; }
+  .hero__photo--xs { display: none; }
+}

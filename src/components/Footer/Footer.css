@@ -1,0 +1,104 @@
+/* ============================================
+   FOOTER — Laura Blanco
+   ============================================ */
+
+.footer {
+  background: var(--ink);
+  color: rgba(250, 246, 240, 0.7);
+  padding: 60px 0 32px;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 52px;
+  padding-bottom: 52px;
+  border-bottom: 1px solid rgba(250,246,240,0.1);
+}
+
+/* Brand */
+.footer__brand-name {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.footer__brand-sub {
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 18px;
+}
+
+.footer__brand-desc {
+  font-size: 0.82rem;
+  line-height: 1.8;
+  max-width: 260px;
+  color: rgba(250,246,240,0.5);
+}
+
+/* Columnas */
+.footer__col-title {
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 22px;
+}
+
+.footer__nav { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+.footer__nav-link {
+  font-size: 0.82rem;
+  color: rgba(250,246,240,0.5);
+  cursor: pointer;
+  transition: color var(--t-fast);
+}
+
+.footer__nav-link:hover { color: var(--cream); }
+
+.footer__contact-item {
+  font-size: 0.82rem;
+  color: rgba(250,246,240,0.5);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer__contact-item a {
+  color: inherit;
+  transition: color var(--t-fast);
+}
+
+.footer__contact-item a:hover { color: var(--cream); }
+
+/* Bottom */
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer__copy {
+  font-size: 0.72rem;
+  color: rgba(250,246,240,0.35);
+}
+
+.footer__copy span { color: var(--terracotta); }
+
+.footer__heart {
+  font-size: 0.72rem;
+  color: rgba(250,246,240,0.35);
+}
+
+@media (max-width: 768px) {
+  .footer__top { grid-template-columns: 1fr; gap: 36px; }
+  .footer__bottom { flex-direction: column; text-align: center; }
+}
